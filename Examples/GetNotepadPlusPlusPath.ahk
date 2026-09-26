@@ -31,7 +31,7 @@ GetNotepadPlusPlusPath(hwnd, DocIndex?, SecondaryView := false) {
    if IsSet(DocIndex) {
       BufferID := SendMessage(NPPM_GETBUFFERIDFROMPOS, DocIndex - 1, SecondaryView, hwnd)
       if !BufferID
-         throw ValueError('The value of DocIndex or ViewIndex is invalid.', -1)
+         throw ValueError('The value of DocIndex or SecondaryView is invalid.', -1)
       NoChars := SendMessage(NPPM_GETFULLPATHFROMBUFFERID, BufferID, 0, hwnd) + 1
       if !NoChars
          throw Error('BufferID does not exist', -1)
