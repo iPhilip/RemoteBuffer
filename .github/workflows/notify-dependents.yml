@@ -12,7 +12,7 @@ jobs:
       - name: Trigger SciTE4AutoHotkey sync
         run: |
           curl -X POST \
-          -H "Authorization: token ${{ secrets.PAT }}" \
+          -H "Authorization: token ${{ secrets.CASCADE_TRIGGER_PAT }}" \
           -H "Accept: application/vnd.github.v3+json" \
           https://api.github.com/repos/iPhilip/SciTE4AutoHotkey/dispatches \
           -d '{"event_type": "remotebuffer-updated"}'
@@ -23,7 +23,7 @@ jobs:
       # - name: Trigger Repo sync
       #   run: |
       #     curl -X POST \
-      #     -H "Authorization: token ${{ secrets.PAT }}" \
+      #     -H "Authorization: token ${{ secrets.CASCADE_TRIGGER_PAT }}" \
       #     -H "Accept: application/vnd.github.v3+json" \
       #     https://api.github.com/repos/iPhilip/Repo/dispatches \
       #     -d '{"event_type": "remotebuffer-updated"}'
