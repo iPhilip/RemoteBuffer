@@ -1,0 +1,18 @@
+name: Notify Dependent Repos
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger SciTE4AutoHotkey sync
+        run: |
+          curl -X POST \
+          -H "Authorization: token ${{ secrets.PAT }}" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/iPhilip/SciTE4AutoHotkey/dispatches \
+          -d '{"event_type": "remotebuffer-updated"}'
