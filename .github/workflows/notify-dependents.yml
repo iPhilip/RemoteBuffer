@@ -16,3 +16,14 @@ jobs:
           -H "Accept: application/vnd.github.v3+json" \
           https://api.github.com/repos/iPhilip/SciTE4AutoHotkey/dispatches \
           -d '{"event_type": "remotebuffer-updated"}'
+
+      # To add a new dependent repo, copy and uncomment the block below
+      # and replace Repo with the actual repo name.
+      #
+      # - name: Trigger Repo sync
+      #   run: |
+      #     curl -X POST \
+      #     -H "Authorization: token ${{ secrets.PAT }}" \
+      #     -H "Accept: application/vnd.github.v3+json" \
+      #     https://api.github.com/repos/iPhilip/Repo/dispatches \
+      #     -d '{"event_type": "remotebuffer-updated"}'
